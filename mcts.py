@@ -48,7 +48,10 @@ class Node:
 		return rd.randrange(-10, 11)
 
 	def backpropagate(self, reward):
-		return None
+		curr = self
+		while curr.parent != None:
+			curr.t += reward
+			curr.n += 1
 
 	def rollout(self):
 		return self.getRandomizedValue()
